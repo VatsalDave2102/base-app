@@ -5,7 +5,12 @@
 
 @layer base {
   html {
-    font-family: "Figtree", sans-serif;
-    @apply box-border;
+    @apply box-border font-figtree;
+  }
+  h1 {
+    @apply text-3xl antialiased;
+  }
+  h2 {
+    @apply text-2xl antialiased;
   }
 }

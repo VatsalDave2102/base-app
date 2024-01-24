@@ -1,7 +1,17 @@
+import Header from "./components/Header";
+import MainContent from "./components/MainContent";
+import Sidebar from "./components/Sidebar";
+
 function App() {
   return (
-    <div className="container">
-      <h1 className="text-primary text-3xl">Base</h1>
+    // Container
+    <div className="container app p-5 mx-auto h-screen">
+      {/* Header */}
+      <Header />
+      <div className="content-wrapper flex">
+        <Sidebar />
+        <MainContent />
+      </div>
     </div>
   );
 }

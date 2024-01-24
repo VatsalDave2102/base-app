@@ -5,10 +5,10 @@
 
 @layer base {
   html {
-    @apply box-border font-figtree;
+    @apply box-border font-figtree bg-mildwhite;
   }
   h1 {
-    @apply text-3xl antialiased;
+    @apply text-3xl antialiased text-primary;
   }
   h2 {
     @apply text-2xl antialiased;

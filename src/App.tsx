@@ -1,16 +1,18 @@
-import Header from "./components/Header";
-import MainContent from "./components/MainContent";
-import Sidebar from "./components/Sidebar";
+import Header from "./feature/Header";
+import MainContent from "./feature/MainContent";
+import Sidebar from "./feature/Sidebar";
 
 function App() {
   return (
     // Container
-    <div className="container app p-5 mx-auto h-screen">
+    <div className=" app  h-screen">
       {/* Header */}
-      <Header />
-      <div className="content-wrapper flex">
+      <div className="content-wrapper md:flex gap-5">
         <Sidebar />
-        <MainContent />
+        <div className="w-full p-4">
+          <Header />
+          <MainContent />
+        </div>
       </div>
     </div>
   );

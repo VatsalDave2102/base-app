@@ -1,7 +1,7 @@
-import Avatar from "./Avatar";
-import { BrandIcon, BrandRoot } from "./Brand";
+import Avatar from "../components/Avatar";
+import { BrandIcon, BrandRoot } from "../components/Brand";
 import HamburgerMenu from "./HamburgerMenu";
-import { Title } from "./Title";
+import { Title } from "../components/Title";
 
 const Header = () => {
   return (
@@ -10,7 +10,7 @@ const Header = () => {
       <HamburgerMenu />
 
       {/* Icon and brand */}
-      <BrandRoot className="justify-self-start basis-3/6 md:basis-1/6">
+      <BrandRoot className="justify-self-start basis-3/6 block md:hidden">
         <BrandIcon
           src="/Subtract.svg"
           alt="Icon"

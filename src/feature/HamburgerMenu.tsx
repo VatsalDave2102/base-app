@@ -1,9 +1,9 @@
 import { useState } from "react";
-import HamburgerHeading from "./HamburgerHeading";
-import HamburgerContent from "./HamburgerContent";
+import HamburgerHeading from "../components/HamburgerHeading";
+import HamburgerContent from "../components/HamburgerContent";
 
 const HamburgerMenu = () => {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <>
       <button

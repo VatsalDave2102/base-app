@@ -15,6 +15,9 @@ const config: Config = {
         figtree: ["Figtree", "sans-serif"],
         nunito: ["Nunito", "sans-serif"],
       },
+      backgroundColor: {
+        mildwhite: "#FAFAFB",
+      },
     },
   },
   plugins: [],

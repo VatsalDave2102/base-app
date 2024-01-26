@@ -10,6 +10,9 @@ const config: Config = {
         arrow: "#999CA0",
         link: "#5B93FF",
         inactive: "#9A9AA9",
+        tablebg: "#F5F5F5",
+        tableRow: "#FFF",
+        popover: "#231F20",
       },
       fontFamily: {
         figtree: ["Figtree", "sans-serif"],

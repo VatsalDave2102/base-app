@@ -1,15 +1,23 @@
 import { useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import Spinner from "./Spinner";
+import * as xlsx from "xlsx";
+import { RowData } from "../feature/MainContent";
+
 interface DropzoneProps {
   className: string;
   setIsUploaded: React.Dispatch<React.SetStateAction<boolean>>;
+  setSheetData: React.Dispatch<React.SetStateAction<RowData[] | null>>;
 }
-const DropZone: React.FC<DropzoneProps> = ({ className, setIsUploaded }) => {
-  const [file, setFile] = useState<File>();
+const DropZone: React.FC<DropzoneProps> = ({
+  className,
+  setIsUploaded,
+  setSheetData,
+}) => {
+  const [file, setFile] = useState<File | null>();
   const [loading, setLoading] = useState(false);
+
   const onDrop = useCallback((acceptedFiles: File[]) => {
-    // Do something with the files
     if (acceptedFiles.length) {
       setFile(acceptedFiles[0]);
     }
@@ -18,7 +26,7 @@ const DropZone: React.FC<DropzoneProps> = ({ className, setIsUploaded }) => {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: {
-      ".csv": [],
+      "text/csv": [".csv"],
       "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [],
       "application/vnd.ms-excel": [],
     },
@@ -26,17 +34,33 @@ const DropZone: React.FC<DropzoneProps> = ({ className, setIsUploaded }) => {
 
   const removeFile = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    setFile(undefined);
+    setFile(null);
   };
 
-  const handleUpload = () => {
-    if (!file) return;
+  const handleUpload = async () => {
     setLoading(true);
-    setTimeout(() => {
+    setIsUploaded(false);
+    try {
+      const reader = new FileReader();
+      reader.readAsArrayBuffer(file as Blob);
+      reader.onload = (e) => {
+        const excelFile = e.target?.result;
+        if (excelFile !== null) {
+          const workbook = xlsx.read(excelFile, { type: "buffer" });
+          const worksheeName = workbook.SheetNames[0];
+          const workSheet = workbook.Sheets[worksheeName];
+          const data = xlsx.utils.sheet_to_json(workSheet);
+          setSheetData(data as RowData[]);
+          setIsUploaded(true);
+        }
+      };
+    } catch (error) {
+      setIsUploaded(false);
+      console.log(error);
+    } finally {
       setLoading(false);
-      setIsUploaded(true);
       setFile(undefined);
-    }, 2000);
+    }
   };
 
   const content = file ? (
@@ -70,7 +94,7 @@ const DropZone: React.FC<DropzoneProps> = ({ className, setIsUploaded }) => {
         )}
       </div>
       <button
-        className="flex bg-secondary p-3 w-full rounded-xl max-w-[500px] mx-auto justify-center gap-2 hover:bg-opacity-50 disabled:bg-opacity-50"
+        className="flex bg-secondary p-3 w-full rounded-xl max-w-[500px] mx-auto justify-center gap-2 hover:bg-opacity-70 disabled:bg-opacity-50"
         onClick={handleUpload}
         disabled={!file}
       >

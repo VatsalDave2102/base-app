@@ -16,7 +16,7 @@ const HamburgerMenu = () => {
       </button>
       {/* drawer */}
       {open && (
-        <div className="h-screen w-full max-w-[300px] absolute top-0 left-0 rounded-r-3xl p-5 bg-white border-r-slate-200 border-r-2 transition">
+        <div className="h-screen w-full max-w-[300px] absolute top-0 left-0 rounded-r-3xl p-5 bg-white border-r-slate-200 border-r">
           <HamburgerHeading setOpen={setOpen} />
           <HamburgerContent />
         </div>

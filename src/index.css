@@ -13,4 +13,16 @@
   h2 {
     @apply text-2xl antialiased;
   }
+  a {
+    @apply text-link underline;
+  }
+  .Select {
+    @apply p-1 w-36 border border-slate-300 rounded outline-none transition inline-block pr-5 cursor-pointer hover:bg-slate-100;
+  }
+  .Select .child {
+    @apply px-2 py-1;
+  }
+  .Select .option {
+    @apply hover:bg-tablebg px-1 py-2;
+  }
 }

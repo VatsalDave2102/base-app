@@ -5,7 +5,7 @@ import { Title } from "../components/Title";
 
 const Sidebar = () => {
   return (
-    <div className="hidden md:flex md:flex-col items-center gap-7  w-[300px] bg-white p-3">
+    <div className="hidden md:flex md:flex-col items-center gap-7 w-[300px] bg-white p-6">
       <BrandRoot>
         <BrandIcon
           src="/Subtract.svg"

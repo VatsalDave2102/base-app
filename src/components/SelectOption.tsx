@@ -4,6 +4,8 @@ interface SelectOptionsProps {
   setSelectedValues: React.Dispatch<React.SetStateAction<string[]>>;
   value: string;
 }
+
+// Option item in select component
 const SelectOption: React.FC<SelectOptionsProps> = ({
   selectedValues,
   setSelectedValues,

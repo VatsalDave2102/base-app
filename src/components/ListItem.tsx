@@ -5,6 +5,7 @@ interface ListItemProps {
   active: boolean;
 }
 
+// List items for sidebar
 const ListItem: React.FC<ListItemProps> = ({ src, title, alt, active }) => {
   const titleClass = `${active ? "text-secondary" : "text-inactive"} text-base`;
   return (

@@ -17,6 +17,8 @@ const config: Config = {
       fontFamily: {
         figtree: ["Figtree", "sans-serif"],
         nunito: ["Nunito", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        lato: ["Lato", "sans-serif"],
       },
       backgroundColor: {
         mildwhite: "#FAFAFB",

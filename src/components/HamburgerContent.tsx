@@ -1,5 +1,7 @@
 import menulist from "../data/menulist";
 import ListItem from "./ListItem";
+
+// Content of hanmburger menu
 const HamburgerContent = () => {
   return (
     <>

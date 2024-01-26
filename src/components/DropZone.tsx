@@ -17,7 +17,9 @@ const DropZone: React.FC<DropzoneProps> = ({
   const [file, setFile] = useState<File | null>();
   const [loading, setLoading] = useState(false);
 
+  // Handler for dropping files
   const onDrop = useCallback((acceptedFiles: File[]) => {
+    // if there is a file dropped, we set the file state
     if (acceptedFiles.length) {
       setFile(acceptedFiles[0]);
     }
@@ -32,11 +34,13 @@ const DropZone: React.FC<DropzoneProps> = ({
     },
   });
 
+  // handler to remove file
   const removeFile = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     setFile(null);
   };
 
+  // handlr to upload file
   const handleUpload = async () => {
     setLoading(true);
     setIsUploaded(false);
@@ -63,6 +67,7 @@ const DropZone: React.FC<DropzoneProps> = ({
     }
   };
 
+  // content to show if file is dropped or not
   const content = file ? (
     <>
       <p className="text-sm text-arrow text-center ">{file.name}</p>
@@ -78,6 +83,7 @@ const DropZone: React.FC<DropzoneProps> = ({
   );
 
   return (
+    // Drop zone
     <div className="drop_zone rounded-xl bg-white max-w-[550px] mx-auto p-4">
       <div {...getRootProps({ className: className })}>
         <input {...getInputProps()} />
@@ -93,6 +99,7 @@ const DropZone: React.FC<DropzoneProps> = ({
           </div>
         )}
       </div>
+      {/* Upload button */}
       <button
         className="flex bg-secondary p-3 w-full rounded-xl max-w-[500px] mx-auto justify-center gap-2 hover:bg-opacity-70 disabled:bg-opacity-50"
         onClick={handleUpload}

@@ -7,6 +7,7 @@ interface TableRowProps {
   rowData: RowData;
 }
 
+// Table row
 const TableRow: React.FC<TableRowProps> = ({ rowData }) => {
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
   const tags = rowData["select tags"].split(",");

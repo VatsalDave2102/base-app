@@ -3,6 +3,8 @@ import TableRow from "./TableRow";
 interface TableProps {
   sheetData: RowData[];
 }
+
+// Table to display data
 const Table: React.FC<TableProps> = ({ sheetData }) => {
   return (
     <div className="flex flex-col">

@@ -3,6 +3,7 @@ interface TagsProps {
   setSelectedValues: React.Dispatch<React.SetStateAction<string[]>>;
 }
 
+// Tags in table cell
 const Tags: React.FC<TagsProps> = ({ selectedValues, setSelectedValues }) => {
   const handleClick = (value: string) => {
     const filteredValues = selectedValues.filter((item) => item !== value);

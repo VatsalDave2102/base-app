@@ -2,6 +2,7 @@ import { useState } from "react";
 import HamburgerHeading from "../components/HamburgerHeading";
 import HamburgerContent from "../components/HamburgerContent";
 
+// Hamburger menu for mobile view
 const HamburgerMenu = () => {
   const [open, setOpen] = useState(false);
   return (

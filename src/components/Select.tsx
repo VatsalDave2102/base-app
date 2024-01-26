@@ -6,6 +6,7 @@ interface SelectProps {
   tags: string[];
 }
 
+// Custom select component
 const Select: React.FC<SelectProps> = ({
   selectedValues,
   setSelectedValues,
